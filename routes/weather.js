@@ -2,7 +2,8 @@ const express = require('express');
 const axios = require('axios');
 const router = express.Router();
 
-const API_KEY = '187d6c3dd15f4d2d99e2a7e0ee08ba04';
+const API_KEY = process.env.API_KEY;
+console.log("🚀 ~ API_KEY:", API_KEY)
 
 router.get('/', async (req, res) => {
   const city = req.query.city;
