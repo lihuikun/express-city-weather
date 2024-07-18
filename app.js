@@ -5,8 +5,11 @@ const morgan = require('morgan');
 const indexRouter = require('./routes/index');
 const weatherRouter = require('./routes/weather');
 const wallpapersRouter = require('./routes/pexels');
+const { specs, swaggerUi } = require('./swagger');
+
 const app = express();
 const port = process.env.PORT || 3000;
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 // Middlewares
 app.use(morgan('dev'));

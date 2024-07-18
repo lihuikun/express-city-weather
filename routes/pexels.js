@@ -3,6 +3,23 @@ const axios = require('axios');
 const router = express.Router();
 
 const PEXELS_API_KEY = process.env.PEXELS_KEY;
+/**
+ * @swagger
+ * /wallpapers?page=1:
+ *   get:
+ *     summary: 获取壁纸
+ *     description: 获取壁纸接口
+ *     parameters:
+ *       - in: query
+ *         name: page
+ *         schema:
+ *           type: integer
+ *         required: true
+ *         description: 页数
+ *     responses:
+ *       '200':
+ *         description: 成功获取壁纸
+ */
 router.get('/', async (req, res) => {
   const { page } = req.query;
   try {
